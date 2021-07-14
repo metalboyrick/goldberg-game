@@ -2,16 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bouncy2.png-8d7705e12ecd6594cd81317c9c471f25.stex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Assets/platforms/bouncy2.png"
-dest_files=[ "res://.import/bouncy2.png-8d7705e12ecd6594cd81317c9c471f25.stex" ]
-
 [params]
 
 compress/mode=0

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/platforms/normal-platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/ball/ball.tscn" type="PackedScene" id=2]
+
+[node name="level-template" type="Node2D"]
+
+[node name="ball" parent="." instance=ExtResource( 2 )]
+position = Vector2( 126, 95 )
+
+[node name="normal-platform" parent="." instance=ExtResource( 1 )]
+position = Vector2( 151, 323 )
+rotation = 0.23911
