@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/levels/level-template.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/platforms/bouncy-platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/ball/ball.tscn" type="PackedScene" id=3]
+
+[node name="level-template" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="bouncy-platform" parent="." instance=ExtResource( 2 )]
+position = Vector2( 176, 224 )
+rotation = 0.418879
+
+[node name="ball" parent="." instance=ExtResource( 3 )]
+position = Vector2( 80, 112 )
+
+[node name="timer-text" type="RichTextLabel" parent="."]
+margin_left = 864.0
+margin_top = 40.0
+margin_right = 904.0
+margin_bottom = 56.0
+rect_scale = Vector2( 3, 3 )
+text = "10.00"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bounce-timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="bounce-timer" to="." method="_on_bouncetimer_timeout"]
