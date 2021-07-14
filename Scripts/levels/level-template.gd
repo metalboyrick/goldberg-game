@@ -34,6 +34,9 @@ func reset_gameplay():
 	# respawn the ball
 	ball.global_position = reset_point.global_position
 	ball.mode = RigidBody2D.MODE_STATIC
+	
+func win_game():
+	print("win")
 
 func _on_resetbutton_pressed():
 	reset_gameplay()
@@ -44,7 +47,6 @@ func _on_boundsleft_body_entered(body):
 	if body.name == "ball":
 		reset_gameplay()
 
-
 func _on_boundsright_body_entered(body):
 	if body.name == "ball":
 		reset_gameplay()
@@ -52,8 +54,12 @@ func _on_boundsright_body_entered(body):
 func _on_boundstop_body_entered(body):
 	if body.name == "ball":
 		reset_gameplay()
-
-
+		
 func _on_boundsbottom_body_entered(body):
 	if body.name == "ball":
 		reset_gameplay()
+
+
+func _on_goal_body_entered(body):
+	if body.name == "ball":
+		win_game()
