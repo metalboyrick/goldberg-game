@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/platforms/normal-platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/platforms/accel-platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/levels/level-template.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/platforms/bouncy-platform.tscn" type="PackedScene" id=4]
+
+[node name="level-template" instance=ExtResource( 3 )]
+target_time = 3.0
+next_level = 3
+
+[node name="accel-platform" parent="." index="8" instance=ExtResource( 2 )]
+position = Vector2( 872, 336 )
+
+[node name="bouncy-platform" parent="." index="9" instance=ExtResource( 4 )]
+position = Vector2( 896, 192 )
+
+[node name="normal-platform" parent="." index="10" instance=ExtResource( 1 )]
+position = Vector2( 896, 264 )
+
+[editable path="bounds-left"]
+[editable path="bounds-right"]
+[editable path="bounds-top"]
+[editable path="bounds-bottom"]
