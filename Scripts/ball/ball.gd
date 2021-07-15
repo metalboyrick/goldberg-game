@@ -1,12 +1,33 @@
 extends KinematicBody2D
 
-export var speed: = Vector2(300.0,1000.0)
+export var bounce_speed = 800.0
+export var accel_magnitude = 25.0
 export var gravity: = 1000.0
-
+var FLOOR_NORMAL: Vector2 = Vector2.UP
 var velocity: = Vector2.ZERO
+
+
+var flag = 0
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
-	var collision = move_and_collide(velocity * delta)
-	if collision:
-		velocity = velocity.bounce(collision.normal)
+	velocity = move_and_slide(velocity)
+	if get_slide_count() > 0:
+		var collision = get_slide_collision(0)
+		if "bouncy-platform" in collision.collider.name:
+			if velocity.y > 0: velocity.y = 0
+			velocity += collision.normal * bounce_speed
+		elif "accel-platform" in collision.collider.name:
+			velocity += calculate_accel_vector(collision)		 
+	return
+	
+
+func calculate_accel_vector(collision: KinematicCollision2D) -> Vector2:
+	var out: = collision.normal.rotated(PI/2)
+	var accel_scale = accel_magnitude
+	if out.x != 0 and out.y != 1:
+		accel_scale -= 10
+	return out * accel_magnitude
+
+
+ 

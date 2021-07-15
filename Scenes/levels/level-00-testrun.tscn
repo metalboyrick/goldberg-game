@@ -1,20 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/platforms/bouncy-platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/ball/ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/platforms/accel-platform.tscn" type="PackedScene" id=3]
 
 [node name="level-template" type="Node2D"]
 
-[node name="bouncy-platform" parent="." instance=ExtResource( 1 )]
-position = Vector2( 151, 286 )
-rotation = 0.872665
-
-[node name="bouncy-platform2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 423, 420 )
-
-[node name="bouncy-platform3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 808, 273 )
-rotation = -0.991347
-
 [node name="ball" parent="." instance=ExtResource( 2 )]
 position = Vector2( 220, 131 )
+
+[node name="bouncy-platform3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 887, 324 )
+
+[node name="accel-platform" parent="." instance=ExtResource( 3 )]
+position = Vector2( 292, 229 )
+rotation = -0.523599
