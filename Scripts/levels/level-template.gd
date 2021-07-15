@@ -1,6 +1,5 @@
 extends Node2D
 
-# TODO : disable play button when dragging
 # TODO : set non-adjustable areas
 
 # level parameters
@@ -9,12 +8,12 @@ export var target_time = 10.00
 var is_running = false												# level is running
 var current_time = 0.0
 
-onready var counter_timer = get_node("timer-text")
-onready var target_time_label = get_node("target-time")
+onready var counter_timer = get_node("anti-block/timer-text")
+onready var target_time_label = get_node("anti-block/target-time")
 onready var ball = get_node("ball")
 onready var reset_point = get_node("reset-point")
-onready var play_button = get_node("play-button")
-onready var reset_button = get_node("reset-button")
+onready var play_button = get_node("anti-block/play-button")
+onready var reset_button = get_node("anti-block/reset-button")
 onready var platforms = get_tree().get_nodes_in_group("Platforms")
 
 # Called when the node enters the scene tree for the first time.
