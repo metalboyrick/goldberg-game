@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 25 )
 
-[node name="normal-platform" type="KinematicBody2D"]
+[node name="normal-platform" type="KinematicBody2D" groups=[
+"Platforms",
+]]
 input_pickable = true
 script = ExtResource( 2 )
 
