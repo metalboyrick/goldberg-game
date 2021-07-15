@@ -28,6 +28,12 @@ func _process(delta):
 	if is_running:
 		current_time += delta
 		counter_timer.text = str(current_time)
+		
+func _input(event):
+	if event is InputEventKey:
+		if event.scancode == KEY_ESCAPE:
+			get_tree().paused = true
+			$"pause-popup".show()
 
 func _on_playbutton_pressed():
 	is_running = true
@@ -38,6 +44,7 @@ func _on_playbutton_pressed():
 	for platform in platforms:
 		platform.is_playing = true
 
+# this function resets 
 func reset_gameplay():
 	
 	# unfreeze all blocks
@@ -92,3 +99,11 @@ func toggle_buttons(play_value:bool):
 	play_button.disabled = play_value
 	reset_button.disabled = !play_value
 	
+func _on_continuebutton_pressed():
+	get_tree().paused = false
+	$"pause-popup".hide()
+
+
+func _on_quitbutton_pressed():
+	get_tree().paused = false
+	get_tree().change_scene("res://Scenes/main.tscn")

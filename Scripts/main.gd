@@ -21,4 +21,5 @@ func _on_startbutton_pressed():
 
 
 func _on_exitbutton_pressed():
+	get_tree().queue_delete(get_tree())
 	get_tree().quit()
