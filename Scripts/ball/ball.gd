@@ -4,16 +4,13 @@ export var bounce_speed = 800.0
 export var accel_magnitude = 25.0
 export var gravity: = 1000.0
 
-var portal_switch_status = false setget set_portal_status
 onready var velocity: = Vector2.ZERO
 
 
-var flag = 0
-
 func _physics_process(delta):
 	velocity.y += gravity * delta
-	if not portal_switch_status:
-		velocity = move_and_slide(velocity)
+	velocity = move_and_slide(velocity)
+	print(get_floor_velocity())
 	if get_slide_count() > 0:
 		var collision = get_slide_collision(0)
 		if "bouncy-platform" in collision.collider.name:
@@ -31,10 +28,3 @@ func calculate_accel_vector(collision: KinematicCollision2D) -> Vector2:
 		accel_scale -= 10
 	return out * accel_magnitude
 
-func set_portal_status(value):
-	portal_switch_status = value
-	if value == false:
-		self.visible = true
-	else:
-		self.visible = false
-	return
