@@ -12,7 +12,7 @@ onready var reset_point = get_node("reset-point")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ball.speed = Vector2.ZERO
+	ball.is_running = false
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,8 +23,11 @@ func _process(delta):
 
 func _on_playbutton_pressed():
 	is_running = true
+	ball.is_running = true
 
 func reset_gameplay():
+	ball.is_running = false
+	ball.velocity = Vector2.ZERO
 	is_running = false
 	target_timer_label.text = str(0)
 	
