@@ -1,11 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/levels/level-template.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/platforms/bouncy-platform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/ball/ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/levels/bounds.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/platforms/accel-platform.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/platforms/normal-platform.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 120, 56 )
@@ -13,6 +10,9 @@ extents = Vector2( 120, 56 )
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 24.0
 height = 80.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 624 )
 
 [node name="level-template" type="Node2D"]
 script = ExtResource( 1 )
@@ -104,17 +104,47 @@ rotation = 1.5708
 position = Vector2( 896, 544 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="goal"]
+position = Vector2( 0, -8 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="accel-platform" parent="." instance=ExtResource( 5 )]
-position = Vector2( 424, 392 )
+[node name="hardbound" type="StaticBody2D" parent="."]
+position = Vector2( 1064, 336 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="bouncy-platform" parent="." instance=ExtResource( 2 )]
-position = Vector2( 696, 392 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hardbound"]
+shape = SubResource( 3 )
 
-[node name="normal-platform" parent="." instance=ExtResource( 6 )]
-position = Vector2( 144, 392 )
+[node name="hardbound2" type="StaticBody2D" parent="."]
+position = Vector2( 464, 640 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hardbound2"]
+shape = SubResource( 3 )
+
+[node name="hardbound3" type="StaticBody2D" parent="."]
+position = Vector2( 496, -40 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hardbound3"]
+shape = SubResource( 3 )
+
+[node name="hardbound4" type="StaticBody2D" parent="."]
+position = Vector2( -40, 304 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hardbound4"]
+shape = SubResource( 3 )
 
 [connection signal="pressed" from="anti-block/reset-button" to="." method="_on_resetbutton_pressed"]
 [connection signal="pressed" from="anti-block/play-button" to="." method="_on_playbutton_pressed"]

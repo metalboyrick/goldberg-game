@@ -4,6 +4,7 @@ extends Node2D
 
 # level parameters
 export var target_time = 10.00
+export var next_level = 1
 
 var is_running = false												# level is running
 var current_time = 0.0
@@ -58,7 +59,8 @@ func reset_gameplay():
 func win_game():
 	if current_time < target_time:
 		reset_gameplay()
-	print("win")
+	else:
+		get_tree().change_scene("res://Scenes/levels/level-" + str(next_level) + ".tscn")
 
 func _on_resetbutton_pressed():
 	reset_gameplay()
