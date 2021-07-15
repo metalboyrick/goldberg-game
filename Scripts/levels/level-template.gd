@@ -12,7 +12,7 @@ onready var reset_point = get_node("reset-point")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ball.mode = RigidBody2D.MODE_STATIC
+	ball.speed = Vector2.ZERO
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,7 +23,6 @@ func _process(delta):
 
 func _on_playbutton_pressed():
 	is_running = true
-	ball.mode = RigidBody2D.MODE_RIGID
 
 func reset_gameplay():
 	is_running = false
@@ -33,7 +32,6 @@ func reset_gameplay():
 	
 	# respawn the ball
 	ball.global_position = reset_point.global_position
-	ball.mode = RigidBody2D.MODE_STATIC
 	
 func win_game():
 	print("win")

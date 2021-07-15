@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/levels/level-template.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/platforms/bouncy-platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/platforms/normal-platform.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/ball/ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/levels/bounds.tscn" type="PackedScene" id=4]
 
@@ -64,9 +64,6 @@ __meta__ = {
 
 [node name="reset-point" type="Position2D" parent="."]
 position = Vector2( 120, 112 )
-
-[node name="ball2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 240, 224 )
 
 [node name="bounds-left" parent="." instance=ExtResource( 4 )]
 position = Vector2( -16, 320 )

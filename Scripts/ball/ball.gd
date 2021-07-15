@@ -7,8 +7,6 @@ var FLOOR_NORMAL: Vector2 = Vector2.UP
 var velocity: = Vector2.ZERO
 
 
-var flag = 0
-
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity)

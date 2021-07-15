@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/ball/ball.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 25.0799
+radius = 25.02
 
 [node name="ball" type="KinematicBody2D"]
 script = ExtResource( 2 )
