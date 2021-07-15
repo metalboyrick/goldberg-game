@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/platforms/bouncy-platform.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 108, 32 )
+extents = Vector2( 100, 25 )
 
 [node name="bouncy-platform" type="KinematicBody2D"]
 collision_layer = 2
@@ -14,5 +14,4 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
