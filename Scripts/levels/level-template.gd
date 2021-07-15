@@ -6,20 +6,22 @@ export var target_time = 10.00
 var is_running = false												# level is running
 var current_time = 0.0
 
-onready var target_timer_label = get_node("timer-text")
+onready var counter_timer = get_node("timer-text")
+onready var target_time_label = get_node("target-time")
 onready var ball = get_node("ball")
 onready var reset_point = get_node("reset-point")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ball.is_running = false
+	target_time_label.text = str(target_time)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if is_running:
 		current_time += delta
-		target_timer_label.text = str(current_time)
+		counter_timer.text = str(current_time)
 
 func _on_playbutton_pressed():
 	is_running = true
@@ -29,7 +31,7 @@ func reset_gameplay():
 	ball.is_running = false
 	ball.velocity = Vector2.ZERO
 	is_running = false
-	target_timer_label.text = str(0)
+	counter_timer.text = str(0)
 	
 	current_time = 0
 	
@@ -37,6 +39,8 @@ func reset_gameplay():
 	ball.global_position = reset_point.global_position
 	
 func win_game():
+	if current_time < target_time:
+		reset_gameplay()
 	print("win")
 
 func _on_resetbutton_pressed():
