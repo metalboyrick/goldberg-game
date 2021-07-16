@@ -16,9 +16,9 @@ position = Vector2( 539, 249 )
 rotation = 0.856957
 
 [node name="normal-platform" parent="." instance=ExtResource( 4 )]
-position = Vector2( 279, 205 )
+position = Vector2( 623, 442 )
 rotation = 0.29147
 scale = Vector2( 1.558, 1 )
 
 [node name="bouncy-platform3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 461, 473 )
+position = Vector2( 220, 303 )

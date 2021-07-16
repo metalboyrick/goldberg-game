@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var bounce_speed = 800.0
+export var bounce_speed = 100.0
 export var accel_magnitude = 25.0
 export var gravity: = 1000.0
 
@@ -12,7 +12,6 @@ func _physics_process(delta):
 	if is_running:
 		velocity.y += gravity * delta
 		velocity = move_and_slide(velocity)
-		print(get_floor_velocity())
 		if get_slide_count() > 0:
 			var collision = get_slide_collision(0)
 			if "bouncy-platform" in collision.collider.name:
