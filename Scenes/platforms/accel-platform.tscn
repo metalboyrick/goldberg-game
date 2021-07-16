@@ -8,7 +8,7 @@
 [ext_resource path="res://Assets/platforms/accel-anim/speed-up3.png" type="Texture" id=6]
 [ext_resource path="res://Assets/platforms/accel-anim/speed-up1.png" type="Texture" id=7]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": true,
@@ -16,7 +16,7 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 90, 20 )
 
 [node name="accel-platform" type="KinematicBody2D" groups=[
@@ -26,10 +26,9 @@ input_pickable = true
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "running"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
