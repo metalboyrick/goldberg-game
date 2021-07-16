@@ -19,15 +19,17 @@ onready var platforms = get_tree().get_nodes_in_group("Platforms")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	toggle_buttons(false)
 	ball.is_running = false
-	target_time_label.text = str(target_time)
+	counter_timer.text = str(0).pad_decimals(2) + "s"
+	target_time_label.text = str(target_time).pad_decimals(2) + "s"
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if is_running:
 		current_time += delta
-		counter_timer.text = str(current_time)
+		counter_timer.text = str(current_time).pad_decimals(2) + "s"
 		
 func _input(event):
 	if event is InputEventKey:
@@ -56,7 +58,7 @@ func reset_gameplay():
 	ball.is_running = false
 	ball.velocity = Vector2.ZERO
 	is_running = false
-	counter_timer.text = str(0)
+	counter_timer.text = str(0).pad_decimals(2) + "s"
 	
 	current_time = 0
 	

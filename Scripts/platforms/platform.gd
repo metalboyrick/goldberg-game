@@ -28,9 +28,11 @@ func _process(delta):
 
 			# handle rotation
 			if Input.is_action_pressed("ui_right"):
-				rotate(rotation_scale)
+				if rotation < deg2rad(90):
+					rotate(rotation_scale)
 			elif Input.is_action_pressed("ui_left"):    
-				rotate(-1 * rotation_scale) 
+				if rotation > deg2rad(-90):
+					rotate(-1 * rotation_scale) 
 
 			position = get_global_mouse_position() + grabbed_offset
 			move_and_slide(Vector2(get_global_mouse_position() + grabbed_offset))
