@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/platforms/goal-animation.tres" type="SpriteFrames" id=1]
+
+[node name="goal-animation" type="KinematicBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+animation = "weigh-down"
+frame = 1
+playing = true
