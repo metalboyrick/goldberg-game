@@ -1,12 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/levels/level-template.gd" type="Script" id=1]
 [ext_resource path="res://Assets/background/background-v2.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/ball/ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/levels/bounds.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/ui/ui-reset.png" type="Texture" id=5]
+[ext_resource path="res://Assets/ui/ui-play.png" type="Texture" id=6]
+[ext_resource path="res://Assets/ui/ui-reset-pressed.png" type="Texture" id=7]
+[ext_resource path="res://Assets/ui/ui-play-pressed.png" type="Texture" id=8]
+[ext_resource path="res://Assets/ui/ui-clock.png" type="Texture" id=9]
+[ext_resource path="res://Assets/ui/ui-target.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 120, 56 )
+extents = Vector2( 128, 64 )
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 24.0
@@ -72,9 +78,10 @@ position = Vector2( 66, 66 )
 position = Vector2( 896, 64 )
 
 [node name="target-time" type="RichTextLabel" parent="anti-block"]
-margin_left = 8.0
-margin_right = 48.0
-margin_bottom = 16.0
+margin_left = -7.33264
+margin_top = 6.67419
+margin_right = 32.6674
+margin_bottom = 22.6742
 rect_scale = Vector2( 3, 3 )
 text = "0.00
 "
@@ -83,33 +90,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="reset-button" type="Button" parent="anti-block"]
-margin_left = -96.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 40.0
+[node name="reset-button" type="TextureButton" parent="anti-block"]
+margin_left = -98.0023
+margin_top = 8.66742
+margin_right = -10.0023
+margin_bottom = 56.6674
 rect_pivot_offset = Vector2( 72, 24 )
-text = "Reset"
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 7 )
+texture_disabled = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="play-button" type="Button" parent="anti-block"]
-margin_left = -96.0
-margin_top = -40.0
-margin_right = -8.0
-margin_bottom = -8.0
+[node name="play-button" type="TextureButton" parent="anti-block"]
+margin_left = -98.0023
+margin_top = -35.3371
+margin_right = -66.0023
+margin_bottom = 12.6629
 rect_pivot_offset = Vector2( 72, 24 )
-text = "Play"
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 8 )
+texture_disabled = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="timer-text" type="RichTextLabel" parent="anti-block"]
-margin_left = 8.0
-margin_top = -40.0
-margin_right = 48.0
-margin_bottom = -24.0
+margin_left = -8.0
+margin_top = -35.3281
+margin_right = 32.0
+margin_bottom = -19.3281
 rect_scale = Vector2( 3, 3 )
 text = "0.00
 "
@@ -118,7 +129,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="clock" type="Sprite" parent="anti-block"]
+position = Vector2( -36.6719, -16.6584 )
+texture = ExtResource( 9 )
+
+[node name="target" type="Sprite" parent="anti-block"]
+position = Vector2( -37.3394, 26.0565 )
+texture = ExtResource( 10 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="anti-block"]
+visible = false
 shape = SubResource( 1 )
 
 [node name="bounds-left" parent="." instance=ExtResource( 4 )]
